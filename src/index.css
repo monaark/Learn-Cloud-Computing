@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  :root, [data-theme="dark"] {
+    --bg-main: #0a0a0c;
+    --bg-card: #121216;
+    --bg-card-hover: #181820;
+    --border-main: #222227;
+    --border-subtle: #1c1c24;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-dim: #4b5563;
+    --accent: #10b981;
+    --accent-hover: #34d399;
+    --accent-bg: rgba(16, 185, 129, 0.1);
+    --accent-border: rgba(16, 185, 129, 0.3);
+    --mermaid-bg: #121216;
+    --mermaid-node-bg: #181820;
+    --mermaid-node-border: #222227;
+    --mermaid-node-text: #f3f4f6;
+    --mermaid-added-bg: #064e3b;
+    --mermaid-added-border: #10b981;
+    --mermaid-added-text: #ffffff;
+    --mermaid-line: #10b981;
+  }
+
+  [data-theme="light"] {
+    --bg-main: #ffffff;
+    --bg-card: #f9fafb;
+    --bg-card-hover: #f3f4f6;
+    --border-main: #e5e7eb;
+    --border-subtle: #f0f0f3;
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    --text-dim: #9ca3af;
+    --accent: #059669;
+    --accent-hover: #047857;
+    --accent-bg: rgba(5, 150, 105, 0.08);
+    --accent-border: rgba(5, 150, 105, 0.25);
+    --mermaid-bg: #f9fafb;
+    --mermaid-node-bg: #ffffff;
+    --mermaid-node-border: #d1d5db;
+    --mermaid-node-text: #111827;
+    --mermaid-added-bg: #d1fae5;
+    --mermaid-added-border: #059669;
+    --mermaid-added-text: #064e3b;
+    --mermaid-line: #059669;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-main);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Mermaid custom SVG styling overrides for dark & light mode */
+.mermaid-svg-container svg {
+  max-width: 100% !important;
+  height: auto !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+[data-theme="dark"] .mermaid-svg-container svg .node rect,
+[data-theme="dark"] .mermaid-svg-container svg .node circle,
+[data-theme="dark"] .mermaid-svg-container svg .node polygon,
+[data-theme="dark"] .mermaid-svg-container svg .node path {
+  fill: var(--mermaid-node-bg) !important;
+  stroke: var(--mermaid-node-border) !important;
+  stroke-width: 1.5px !important;
+}
+
+[data-theme="dark"] .mermaid-svg-container svg .node.add rect,
+[data-theme="dark"] .mermaid-svg-container svg .node.add circle,
+[data-theme="dark"] .mermaid-svg-container svg .node.add polygon,
+[data-theme="dark"] .mermaid-svg-container svg .node.add path {
+  fill: var(--mermaid-added-bg) !important;
+  stroke: var(--mermaid-added-border) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme="dark"] .mermaid-svg-container svg .node text,
+[data-theme="dark"] .mermaid-svg-container svg .node .label {
+  fill: var(--mermaid-node-text) !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .mermaid-svg-container svg .node rect,
+[data-theme="light"] .mermaid-svg-container svg .node circle,
+[data-theme="light"] .mermaid-svg-container svg .node polygon,
+[data-theme="light"] .mermaid-svg-container svg .node path {
+  fill: var(--mermaid-node-bg) !important;
+  stroke: var(--mermaid-node-border) !important;
+  stroke-width: 1.5px !important;
+}
+
+[data-theme="light"] .mermaid-svg-container svg .node.add rect,
+[data-theme="light"] .mermaid-svg-container svg .node.add circle,
+[data-theme="light"] .mermaid-svg-container svg .node.add polygon,
+[data-theme="light"] .mermaid-svg-container svg .node.add path {
+  fill: var(--mermaid-added-bg) !important;
+  stroke: var(--mermaid-added-border) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme="light"] .mermaid-svg-container svg .node text,
+[data-theme="light"] .mermaid-svg-container svg .node .label {
+  fill: var(--mermaid-node-text) !important;
+  font-weight: 500 !important;
+}
